@@ -137,4 +137,38 @@ public class BSTTest {
         assertEquals("Z",queue.dequeue());
         assertTrue(queue.isEmpty());
     }
+    
+    @Test
+    public void testAvg() {
+    	HashMap<Integer,Integer> map = new HashMap<>();
+    	for(int i = 0;i<20;i++)
+    		map.put(i, i);
+    	BSTSimple<Integer,Integer> bst = new BSTSimple<>();
+    	bst.putAll(map);
+    	int leafcount = bst.leafCount();
+    	int sumdepth = bst.sumDepth(bst.root);
+    	System.out.println(bst);
+    	System.out.println(String.format("leaf count is %d, sum depth is %d", leafcount, sumdepth));
+    }
+    
+    //@Test
+    public void testSize() {
+    	HashMap<Integer,Integer> map = new HashMap<>();
+    	for(int i = 0;i<10;i++)
+    		map.put(i, i);
+    	BSTSimple<Integer,Integer> bst = new BSTSimple<>();
+    	bst.putAll(map);
+    	int sizepre = bst.size();
+    	System.out.println(bst);
+    	System.out.println('\n');
+    	//bst.put(12,12);
+    	bst.delete(1);
+    	//bst.put(11,11);
+    	System.out.println(bst);
+    	int sizepost = bst.size();
+    	//System.out.println(bst);
+    	System.out.println(String.format("pre size is %d,why post size is %d", sizepre, sizepost));
+    }
+    
+    
 }
